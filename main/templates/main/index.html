@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% comment %} placeholder / контекстная переменная {% endcomment %}
-    <title>{{ title }}</title>
-</head>
-<body>
-    <p>{{ content }}</p>
-    {% comment %} шаблонный тег if - endif {% endcomment %}
-    {% if is_authenticated %}
-        <p>{{ list.0 }}</p>
-        <p>{{ dict.first }}</p>
-    {% endif %}
-</body>
-</html>
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+    <h1 class="welcome_header">{{ content }}</h1>
+
+    <a href="#" class="link_basic_style index_catalog_link decoration_none">Каталог</a>
+
+    <div class="information_div">
+        <h2 class="information_header">Информация</h1>
+        <ul class="information_links">
+            <li><a href="{% url "main:delivery_and_payments" %}" class="link_basic_style decoration_none">Доставка и оплата</a></li>
+            <li><a href="{% url "main:contacts" %}" class="link_basic_style decoration_none">Контактная информация</a></li>
+            <li><a href="{% url "main:about" %}" class="link_basic_style decoration_none">О нас</a></li>
+        </ul>
+    </div>
+{% endblock content %}

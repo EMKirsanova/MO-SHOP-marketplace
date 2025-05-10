@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static "deps/css/index.css" %}">
+</head>
+<body>
+    <header class="header_main">
+        <div class="wrapper inline_block"><a href="{% url "main:index" %}" class="header_title decoration_none">MO-ШОП</a></div>
+        <img src="" alt="header_stars-image" class="header_stars-image">
+        <img src="" href="#" alt="header_cart-image" title="Корзина" class="header_cart-image">
+        <img src="" href="#" alt="header_account-image" title="Профиль" class="header_accont-image">
+    </header>
+
+    <div class="page_content">
+        {% block content %}{% endblock content %}
+    </div>
+</body>
+</html>

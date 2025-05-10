@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding: 0;
+    border: none;
+  
+    /* font-family: 'Arial'; */
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+body {
+    background-color: #c9b8e6;
+}
+
+.header_main {
+    position: fixed; /* Закрепляет шапку наверху экрана */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    /* line-height: 60px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    box-sizing: border-box;
+    /* text-align: center; */
+    /* padding: 12px 0; */
+    padding: 0 30px;
+    z-index: 1000; /* Шапка всегда сверху */
+    background-color: #8782ff; /* Фон шапки */
+    /*border-bottom: 1px solid #ddd; /* Линия под шапкой */
+}
+
+.header_title {
+    font-size: 2em;
+    font-weight: 800;
+    color: #fff;
+}
+
+.link_basic_style, .link_basic_style:visited {
+    color: #13122a;
+    box-sizing: content-box;
+}
+
+.link_basic_style:hover, .link_basic_style:focus {
+    color: #3b3786;
+}
+
+.page_content {
+    margin: 0 30px;
+    padding-top: 65px;
+}
+
+.welcome_header {
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.information_header {
+    font-size: 1.5em;
+}
+
+.inline_block {
+    display: inline-block;
+}
+
+.index_catalog_link {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.information_links {
+    padding-left: 24px;
+    list-style-type: circle;
+    font-size: 1.5em;
+}
+
+.information_links li {
+    padding-left: 10px;
+    font-size: 1em;
+}
+
+.information_links li a {
+    padding-left: 10px;
+    font-size: 1em;
+}
+
+.decoration_none {
+    text-decoration: none;
+}
+
+.search_panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* margin-top: 65px; */
+    margin-bottom: 15px;
+}
+
+.search_input {
+    width: 82%;
+}
+
+.search_filter {
+    width: 8%;
+}
+
+.product_section {
+    /* возможно использование display: grid ? */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.product_card {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    width: 18%;
+    height: 290px;
+    /* margin: 30px auto; */
+    /* border: 1px solid rgb(52, 52, 52); */
+}
+
+.product_image {
+    border: 1px solid rgb(52, 52, 52);
+}
