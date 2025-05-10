@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="product-screen_bg">
+        <img class="product-screen_image" src="{% static "deps/images/flower.jpg" %}" alt="product_image">
+        <div class="product-screen_information">
+            <h2 class="product-screen_name">Название товара</h2>
+            <p class="product_screen-rating">10\10</p>
+            <p class="product_screen-description">Описание товара</p>
+            <a href="#" class="product_screen-add-to-cart decoration_none">Добавить в корзину</a>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+        <div class="search_panel">
+            <input class="search_input" type="search" name="search-product" id="search-product" placeholder="Поиск">
+            <input class="search_filter filter-sort" type="button" value="Сортировать">
+            <input class="search_filter filter-categories" type="button" value="Категории">
+        </div>
+    
+
+        <div class="product_section">
+
+            <article class="product_card">
+                <img class="product_image" src="{% static "deps/images/flower.jpg" %}" alt="product_image">
+                <p class="product_name">Наименование</p>
+                <p class="product_price">Цена</p>
+            </article>
+    
+            <article class="product_card">
+                <img class="product_image" src="{% static "deps/images/flower.jpg" %}" alt="product_image">
+                <p class="product_name">Наименование</p>
+                <p class="product_price">Цена</p>
+            </article>
+    
+            <article class="product_card">
+                <img class="product_image" src="{% static "deps/images/flower.jpg" %}" alt="product_image">
+                <p class="product_name">Наименование</p>
+                <p class="product_price">Цена</p>
+            </article>
+    
+            <article class="product_card">
+                <img class="product_image" src="{% static "deps/images/flower.jpg" %}" alt="product_image">
+                <p class="product_name">Наименование</p>
+                <p class="product_price">Цена</p>
+            </article>
+
+            <article class="product_card">
+                <img class="product_image" src="{% static "deps/images/flower.jpg" %}" alt="product_image">
+                <p class="product_name">Наименование</p>
+                <p class="product_price">Цена</p>
+            </article>
+
+        </div>
+{% endblock content %}

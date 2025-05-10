@@ -4,7 +4,7 @@
 {% block content %}
     <h1 class="welcome_header">{{ content }}</h1>
 
-    <a href="#" class="link_basic_style index_catalog_link decoration_none">Каталог</a>
+    <a href="{% url "catalog:index" %}" class="link_basic_style index_catalog_link decoration_none">Каталог</a>
 
     <div class="information_div">
         <h2 class="information_header">Информация</h1>
