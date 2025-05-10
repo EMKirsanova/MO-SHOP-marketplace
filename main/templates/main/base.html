@@ -11,9 +11,14 @@
 <body>
     <header class="header_main">
         <div class="wrapper inline_block"><a href="{% url "main:index" %}" class="header_title decoration_none">MO-ШОП</a></div>
-        <img src="" alt="header_stars-image" class="header_stars-image">
-        <img src="" href="#" alt="header_cart-image" title="Корзина" class="header_cart-image">
-        <img src="" href="#" alt="header_account-image" title="Профиль" class="header_accont-image">
+        <!-- div для звёзд в header -->
+        <div class="header_stars-bg"></div> 
+        <a href="#" class="display_flex">
+            <img src="{% static "deps/icons/cart_header.svg" %}" class="header_cart-image" alt="header_cart-image" title="Корзина">
+        </a>
+        <a href="#" class="display_flex">
+            <img src="{% static "deps/icons/account_icon.svg" %}" class="header_account-image" alt="header_account-image" title="Профиль">
+        </a>
     </header>
 
     <div class="page_content">
