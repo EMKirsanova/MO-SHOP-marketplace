@@ -11,35 +11,15 @@
 
         <div class="product_section">
 
-            <article class="product_card">
-                <img class="product_image" src="{% static "deps/images/flower.jpg" %}" alt="product_image">
-                <p class="product_name">Наименование</p>
-                <p class="product_price">Цена</p>
-            </article>
-    
-            <article class="product_card">
-                <img class="product_image" src="{% static "deps/images/flower.jpg" %}" alt="product_image">
-                <p class="product_name">Наименование</p>
-                <p class="product_price">Цена</p>
-            </article>
-    
-            <article class="product_card">
-                <img class="product_image" src="{% static "deps/images/flower.jpg" %}" alt="product_image">
-                <p class="product_name">Наименование</p>
-                <p class="product_price">Цена</p>
-            </article>
-    
-            <article class="product_card">
-                <img class="product_image" src="{% static "deps/images/flower.jpg" %}" alt="product_image">
-                <p class="product_name">Наименование</p>
-                <p class="product_price">Цена</p>
-            </article>
-
-            <article class="product_card">
-                <img class="product_image" src="{% static "deps/images/flower.jpg" %}" alt="product_image">
-                <p class="product_name">Наименование</p>
-                <p class="product_price">Цена</p>
-            </article>
+            {% for product in goods %}
+                <article class="product_card">
+                    <img class="product_image" src="{% static product.image %}" alt="product_image">
+                    <a href="{% url "catalog:product" %}" class="product_name-link decoration_none">
+                        <p class="product_name-text">{{ product.name }}</p>
+                    </a>
+                    <p class="product_price">{{ product.price }} ₽</p>
+                </article>
+            {% endfor %}
 
         </div>
 {% endblock content %}

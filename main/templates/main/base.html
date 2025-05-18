@@ -11,6 +11,19 @@
 <body>
     <header class="header_main">
         <div class="wrapper inline_block"><a href="{% url "main:index" %}" class="header_title decoration_none">MO-ШОП</a></div>
+        <!-- div для каталога в header -->
+        <div class="dropdown-menu">
+            <button class="dropdown-menu_button" id="dropdown-menu_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p>Каталог</p>
+                <img class="catalog_icon" src="{% static "deps/icons/grid-fill.svg" %}" alt="Catalog Icon" width="28"
+                    height="28">
+            </button>
+            <ul class="dropdown-menu_list" id="dropdown-menu_list" style="display: none">
+                {% for category in categories %}
+                    <li><a class="dropdown-menu_item link_basic_style decoration_none" href="{% url "catalog:index" %}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
         <!-- div для звёзд в header -->
         <div class="header_stars-bg"></div> 
         <a href="#" class="display_flex">
@@ -24,5 +37,7 @@
     <div class="page_content">
         {% block content %}{% endblock content %}
     </div>
+
+    <script src="{% static "deps/js/jquery-events.js" %}"></script>
 </body>
 </html>
