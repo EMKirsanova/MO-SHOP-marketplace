@@ -13,11 +13,29 @@
 
             {% for product in goods %}
                 <article class="product_card">
-                    <img class="product_image" src="{% static product.image %}" alt="product_image">
-                    <a href="{% url "catalog:product" %}" class="product_name-link decoration_none">
-                        <p class="product_name-text">{{ product.name }}</p>
-                    </a>
-                    <p class="product_price">{{ product.price }} ₽</p>
+                    {% if product.image %}
+                        <img class="product_image" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <img class="product_image" src="{% static "deps/images/Not found image.png" %}" alt="{{ product.name }}">
+                    {% endif %}
+                    <div class="product_card_info">
+                        <a href="{% url "catalog:product" %}" class="product_name-link decoration_none">
+                            <p class="product_name-text">{{ product.name }}</p>
+                        </a>
+                        <p class="product_id">id: {{ product.display_id }}</p>
+
+                        <div class="product_card_bottom-row">
+                            {% if product.discount %}
+                                <p class="product_price">{{ product.sell_price }} ₽</p>
+                                <p class="product_price-if-discount">{{ product.price }} ₽</p>
+                            {% else %}
+                                <p class="product_price">{{ product.price }} ₽</p>
+                            {% endif %}
+                            <a href="#" class="display_flex">
+                                <img src="{% static "deps/icons/cart-plus.svg" %}" class="product_card_to-cart" alt="Add_to_cart_btn" title="Добавить в корзину">
+                            </a>
+                        </div>
+                    </div>
                 </article>
             {% endfor %}
 

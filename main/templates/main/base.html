@@ -1,4 +1,5 @@
 {% load static %}
+{% load goods_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,9 @@
 </head>
 <body>
     <header class="header_main">
-        <div class="wrapper inline_block"><a href="{% url "main:index" %}" class="header_title decoration_none">MO-ШОП</a></div>
+        <div class="wrapper inline_block">
+            <a href="{% url "main:index" %}" class="header_title decoration_none">MO-ШОП</a>
+        </div>
         <!-- div для каталога в header -->
         <div class="dropdown-menu">
             <button class="dropdown-menu_button" id="dropdown-menu_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -19,6 +22,7 @@
                     height="28">
             </button>
             <ul class="dropdown-menu_list" id="dropdown-menu_list" style="display: none">
+                {% tag_categories as categories %}
                 {% for category in categories %}
                     <li><a class="dropdown-menu_item link_basic_style decoration_none" href="{% url "catalog:index" %}">{{ category.name }}</a></li>
                 {% endfor %}
