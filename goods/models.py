@@ -42,6 +42,7 @@ class Products(models.Model):
         # Как отображается в Админ-панели
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
+        ordering = ("id",)
 
 
     def __str__(self):

@@ -11,38 +11,66 @@
 
         <div class="product_section">
             {% if goods %}
-            {% for product in goods %}
-                <article class="product_card">
-                    <a href="{% url "catalog:product" product.slug %}">
-                        {% if product.image %}
-                            <img class="product_image" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        {% else %}
-                            <img class="product_image" src="{% static "deps/images/Not found image.png" %}" alt="{{ product.name }}">
-                        {% endif %}
-                    </a>
-                    <div class="product_card_info">
-                        <a href="{% url "catalog:product" product.slug %}" class="product_name-link decoration_none">
-                            <p class="product_name-text">{{ product.name }}</p>
-                        </a>
-                        <p class="product_id">id: {{ product.display_id }}</p>
-
-                        <div class="product_card_bottom-row">
-                            {% if product.discount %}
-                                <p class="product_price">{{ product.sell_price }} ₽</p>
-                                <p class="product_price-if-discount">{{ product.price }} ₽</p>
+                {% for product in goods %}
+                    <article class="product_card">
+                        <a href="{% url "catalog:product" product.slug %}">
+                            {% if product.image %}
+                                <img class="product_image" src="{{ product.image.url }}" alt="{{ product.name }}">
                             {% else %}
-                                <p class="product_price">{{ product.price }} ₽</p>
+                                <img class="product_image" src="{% static "deps/images/Not found image.png" %}" alt="{{ product.name }}">
                             {% endif %}
-                            <a href="#" class="display_flex">
-                                <img src="{% static "deps/icons/cart-plus.svg" %}" class="product_card_to-cart" alt="Add_to_cart_btn" title="Добавить в корзину">
+                        </a>
+                        <div class="product_card_info">
+                            <a href="{% url "catalog:product" product.slug %}" class="product_name-link decoration_none">
+                                <p class="product_name-text">{{ product.name }}</p>
                             </a>
+                            <p class="product_id">id: {{ product.display_id }}</p>
+
+                            <div class="product_card_bottom-row">
+                                {% if product.discount %}
+                                    <p class="product_price">{{ product.sell_price }} ₽</p>
+                                    <p class="product_price-if-discount">{{ product.price }} ₽</p>
+                                {% else %}
+                                    <p class="product_price">{{ product.price }} ₽</p>
+                                {% endif %}
+                                <a href="#" class="display_flex">
+                                    <img src="{% static "deps/icons/cart-plus.svg" %}" class="product_card_to-cart" alt="Add_to_cart_btn" title="Добавить в корзину">
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </article>
-            {% endfor %}
+                    </article>
+                {% endfor %}
             {% else %}
                 <p class="catalog_empty_p">Нет товаров</p>
             {% endif %}
 
         </div>
+
+        <!-- Пагинация -->
+        <nav aria-label="Page navigation example">
+            <ul class="catalog_pagination">
+                    <li class="catalog_pagination-item {% if not goods.has_previous %}disabled{% endif %}">
+                        <a class="pagination-link decoration_none" href="{% if goods.has_previous %}
+                        {% url "catalog:index" slug_url goods.previous_page_number %}
+                        {% else %}
+                        #
+                        {% endif %}">Назад</a>
+                    </li>
+
+                    {% for page in goods.paginator.page_range %}
+                        {% if page >= goods.number|add:-2 and page <= goods.number|add:2 %}
+                            <li class="catalog_pagination-item {% if goods.number == page %}active{% endif %}"><a class="pagination-link decoration_none" href="{% url "catalog:index" slug_url page %}">
+                                {{ page }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    <li class="catalog_pagination-item {% if not goods.has_next %}disabled{% endif %}">
+                        <a class="pagination-link decoration_none" href="{% if goods.has_next %}
+                        {% url "catalog:index" slug_url goods.next_page_number %}
+                        {% else %}
+                        #
+                        {% endif %}">Вперёд</a>
+                    </li>
+            </ul>
+        </nav>
 {% endblock content %}
