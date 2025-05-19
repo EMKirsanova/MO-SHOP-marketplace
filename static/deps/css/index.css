@@ -132,6 +132,7 @@ body {
 
 .information_header {
     font-size: 1.5em;
+    margin-bottom: 6px;
 }
 
 .inline_block {
@@ -162,6 +163,25 @@ body {
 
 .decoration_none {
     text-decoration: none;
+}
+
+.about_text {
+    font-size: 1.5em;
+    color: #13122a;
+}
+
+.about_text a {
+    font-size: 1.5em;
+    color: #13122a;
+}
+
+.contacts_email {
+    font-size: 1.5em;
+    color: #13122a;
+}
+
+.contacts_email:hover {
+    color: #3b3786;
 }
 
 
@@ -459,13 +479,23 @@ body {
 }
 
 .product_screen-description {
-    font-size: 1.2em;
+    font-size: 1.12em;
+}
+
+.product_screen-prices {
+    display: flex;
+    margin-top: auto;
 }
 
 .product_screen-price {
     font-size: 1.5em;
-    color: #000;
-    margin-top: auto;
+    color: #13122a;
+    margin-right: 20px;
+}
+
+.product_screen-price-if-discount {
+    color: #3b3786;
+    text-decoration: line-through;
 }
 
 .product_screen-add-to-cart {

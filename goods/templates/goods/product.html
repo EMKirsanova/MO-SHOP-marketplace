@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
@@ -11,7 +11,15 @@
             <p class="product-screen_id">id: {{ product.display_id }}</p>
             <p class="product_screen-rating">10\10</p>
             <p class="product_screen-description">{{ product.description }}</p>
-            <p class="product_screen-price">{{ product.sell_price }} ₽</p>
+            <div class="product_screen-prices">
+                {% if product.discount %}
+                    <p class="product_screen-price">{{ product.sell_price }} ₽</p>
+                    <p class="product_screen-price-if-discount">{{ product.price }} ₽</p>
+                {% else %}
+                    <p class="product_screen-price">{{ product.price }} ₽</p>
+                {% endif %}
+            </div>
+            {% comment %} <p class="product_screen-price">{{ product.sell_price }} ₽</p> {% endcomment %}
             <a href="#" class="product_screen-add-to-cart decoration_none">Добавить в корзину</a>
         </div>
     </div>

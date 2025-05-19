@@ -1,9 +1,9 @@
-{% extends "main/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
     <h2 class="welcome_header">{{ content }}</h2>
 
     <p class="about_text">{{ text_on_page|linebreaksbr }}</p>
-    <a class="link_basic_style decoration_none" href="{{ email_href }}">{{ email_text }}</a>
+    <a class="contacts_email link_basic_style decoration_none" href="{{ email_href }}">{{ email_text }}</a>
 {% endblock content %}
