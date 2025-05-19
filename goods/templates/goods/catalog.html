@@ -4,19 +4,24 @@
 
 {% block content %}
         <div class="search_panel">
-            <input class="search_input" type="search" name="search-product" id="search-product" placeholder="Поиск">
-            {% comment %} <input class="search_filter filter-sort" type="button" value="Сортировать"> {% endcomment %}
+            {% comment %} <input class="search_input" type="search" name="search-product" id="search-product" placeholder="Поиск"> {% endcomment %}
+            <form class="search_form" role="search" action="{% url "catalog:search" %}" method="get">
+                <input class="search_input" type="search" name="q" id="search-product" placeholder="Поиск" aria-label="Search">
+                <button class="search_input_submit-btn" type="submit">Найти</button>
+            </form>
 
             <!-- Фильтры -->
             <button class="dropdown-filter_button filter-options" id="dropdown-filter_button" type="button">
                 <p>Фильтры</p>
             </button>
 
-            <form action="{% url "catalog:index" slug_url %}" method="get" class="dropdown-filter_form" id="dropdown-filter_form" style="display: none">
+            <form action="{% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-filter_form" id="dropdown-filter_form" style="display: none">
                 <div class="form-check_on-sales">
                     <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" 
                     {% if request.GET.on_sale == "on" %}checked{% endif %}>
-                    {% comment %} <input type="hidden" name="q" value="request.GET.q"> {% endcomment %}
+                    {% if request.GET.q %}
+                        <input type="hidden" name="q" value="{{ request.GET.q }}">
+                    {% endif %}
                     <label class="form-check-label" for="flexCheckDefault">
                         Товары по акции
                     </label>
