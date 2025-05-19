@@ -10,7 +10,7 @@
     
 
         <div class="product_section">
-
+            {% if goods %}
             {% for product in goods %}
                 <article class="product_card">
                     <a href="{% url "catalog:product" product.slug %}">
@@ -40,6 +40,9 @@
                     </div>
                 </article>
             {% endfor %}
+            {% else %}
+                <p class="catalog_empty_p">Нет товаров</p>
+            {% endif %}
 
         </div>
 {% endblock content %}

@@ -200,25 +200,30 @@ body {
     background-color: #8782ff;
 }
 
+.catalog_empty_p {
+    font-size: 1.2em;
+}
+
 .product_section {
-    /* возможно использование display: grid ? */
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap;
     background-color: #fff;
     height: auto;
-    padding: 30px 50px 0;
-    margin-bottom: 30px;
+    padding: 30px 50px 30px;
+    width: -webkit-fill-available;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 196px);
+    gap: 20px;
+    min-width: 210px;
+    max-width: 100%;
+    margin: 0 auto 30px;
 }
 
 .product_card {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-width: 180px;
-    max-width: 200px;
-    width: 18%;
+    width: 196px;
     height: 336px;
     margin-bottom: 20px;
     /* margin: 30px auto; */

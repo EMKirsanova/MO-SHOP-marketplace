@@ -24,7 +24,7 @@
             <ul class="dropdown-menu_list" id="dropdown-menu_list" style="display: none">
                 {% tag_categories as categories %}
                 {% for category in categories %}
-                    <li><a class="dropdown-menu_item link_basic_style decoration_none" href="{% url "catalog:index" %}">{{ category.name }}</a></li>
+                    <li><a class="dropdown-menu_item link_basic_style decoration_none" href="{% url "catalog:index" category.slug %}">{{ category.name }}</a></li>
                 {% endfor %}
             </ul>
         </div>
