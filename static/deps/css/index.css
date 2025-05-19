@@ -311,7 +311,7 @@ body {
 .catalog_pagination-item {
     box-sizing: border-box;
     background-color: #fff;
-    padding: 6px;
+    padding: 6px 10px;
 }
 
 .catalog_pagination-item.disabled .pagination-link {

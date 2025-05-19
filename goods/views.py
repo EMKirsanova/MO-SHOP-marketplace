@@ -1,4 +1,6 @@
+from pickle import GET
 from unicodedata import category
+from webbrowser import get
 from django.core.paginator import Paginator
 from django.shortcuts import render
 
@@ -6,7 +8,9 @@ from goods.models import Products
 
 
 # Create your views here.
-def catalog(request, category_slug, page=1):
+def catalog(request, category_slug):
+
+    page = request.GET.get("page", 1)
 
     if category_slug == "all":
         goods = Products.objects.all()
@@ -15,7 +19,7 @@ def catalog(request, category_slug, page=1):
         # get_list_or_404()
     
     paginator = Paginator(goods, 12)
-    current_page = paginator.page(page)
+    current_page = paginator.page(int(page))
     
     context = {
         "title": "МО-ШОП — Каталог",
