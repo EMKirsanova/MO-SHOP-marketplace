@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="profile_container">
+        <!-- Профиль с данными пользователя -->
+        <div class="user_profile">
+            <h3 class="login_title">Профиль пользователя</h3>
+            <form>
+                <div class="row">
+                    <div class="profile-div profile_image_div">
+                        <img src="{% static "deps/images/baseavatar.jpg" %}"
+                            alt="Аватар пользователя" class="profile_image"
+                            style="max-width: 150px;">
+                        <input type="file" class="form-control" id="avatar"
+                            accept="image/*">
+                    </div>
+                    <div class="profile-div">
+                        <label for="firstName" class="profile_form-label">Имя*</label>
+                        <input type="text" class="login_form-control" id="firstName"
+                            placeholder="Введите ваше имя" value="" required>
+                    </div>
+                    <div class="profile-div">
+                        <label for="lastName" class="profile_form-label">Фамилия*</label>
+                        <input type="text" class="login_form-control" id="lastName"
+                            placeholder="Введите вашу фамилию" value="" required>
+                    </div>
+                    <div class="profile-div">
+                        <label for="username" class="profile_form-label">Имя пользователя*</label>
+                        <input type="text" class="login_form-control" id="username"
+                            placeholder="Введите ваше имя пользователя" value="" required>
+                    </div>
+                    <div class="profile-div">
+                        <label for="email" class="profile_form-label">Email*</label>
+                        <input type="email" class="login_form-control" id="email"
+                            placeholder="Введите ваш email (youremail@example.com)" value=""
+                            required>
+                    </div>
+                </div>
+                <button type="submit" class="login_submit-btn profile_sublit-btn">Сохранить</button>
+            </form>
+        </div>
+
+        <!-- Корзина -->
+        <div class="user_cart">
+            <h3 class="login_title">Корзина</h3>
+            <div class="cart_container" id="cart-items-container">
+                <!-- Разметка корзины -->
+                <div class="cart_block">
+                    <div class="cart_header">
+                        <h5 class="cart_title">Товар</h5>
+                    </div>
+                    <ul class="cart_product-lines">
+                        <li class="cart_product-line_li">
+                            <div class="cart_product-line_div">
+                                <div class="col p-0">
+                                    <div class="cart_product-line-part">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="cart_setting-btn decrement"
+                                                data-cart-id="" data-cart-change-url="">-</button>
+                                        </span>
+                                        <input type="text" class="cart_form-control number" value="1"
+                                            readonly>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="cart_setting-btn increment"
+                                                data-cart-id="" data-cart-change-url="">+</button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col p-0">
+                                    <p>x 100.00 = </p>
+                                </div>
+                                <div class="col p-0"><strong>100.00 $</strong></div>
+                                <div class="col p-0">
+                                    <a href="#" class="remove-from-cart" data-cart-id="">
+                                        <img class="mx-1" src="{% static "deps/icons/trash3-fill.svg" %}"
+                                            alt="Catalog Icon" width="16" height="16">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cart_block">
+                    <div class="cart-footer">
+                        <p class="cart-footer_text">Итого <strong>1</strong> товар(а) на сумму</p>
+                        <h4 class="cart-footer_cost"><strong>100.00 $</strong></h4>
+                    </div>
+                </div>
+                <!-- Закончилась разметка корзины -->
+            </div>
+            <a class="login_submit-btn profile_sublit-btn decoration_none" href="../orders/create_order.html">
+                Оформить заказ
+            </a>
+        </div>
+
+        <!-- Оформленные заказы -->
+        <div class="user_orders">
+            <h3 class="login_title">Мои заказы</h3>
+            <!-- Разметка заказов -->
+            <div class="orders_container">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading1">
+                            <button class="accordion-button" type="button">
+                                Заказ № 256 - 09 сентября 2023 9:04 | Статус:<strong class="order_status"> В обработке</strong>
+                            </button>
+                        </h2>
+                        <div id="collapse1" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <table class="accordion-body_table table-dark table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Товар</th>
+                                            <th>Количество</th>
+                                            <th>Цена</th>
+                                            <th>Общая стоимость</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a class="accordion-body_table_item decoration_none" href="#">
+                                                Комплект стол и три стула</a></td>
+                                            <td>1</td>
+                                            <td>255.00 $</td>
+                                            <td>255.00 $</td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="accordion-item_cost">
+                                    <p><strong>Итого:</strong></p>
+                                    <p><strong>255.00 $</strong></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Закончилась разметка заказов -->
+        </div>
+    </div>
+{% endblock content %}

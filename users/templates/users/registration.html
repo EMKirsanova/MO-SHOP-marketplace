@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="login_wrapper">
+        <div class="login_panel">
+            <h2 class="login_title">Регистрация</h2>
+            <form class="login_form">
+                <div class="login_form_role">
+                    <label for="role-select" class="login_form_login-as registration_form-label">Зарегистрироваться как:</label>
+                    <select class="login_form-control" id="role-select" name="role" required>
+                        <option value="" disabled selected>Выберите роль</option>
+                        <option value="customer">Покупатель</option>
+                        <option value="seller">Продавец</option>
+                        <option value="staff">Сотрудник</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div>
+                        <label for="firstName" class="registration_form-label">Имя*</label>
+                        <input type="text" class="login_form-control" id="firstName"
+                            placeholder="Введите ваше имя" required>
+                    </div>
+                    <div>
+                        <label for="lastName" class="registration_form-label">Фамилия*</label>
+                        <input type="text" class="login_form-control" id="lastName"
+                            placeholder="Введите вашу фамилию" required>
+                    </div>
+                    <div>
+                        <label for="username" class="registration_form-label">Логин*</label>
+                        <input type="text" class="login_form-control" id="username"
+                            placeholder="Введите ваше имя пользователя" required>
+                    </div>
+                    <div>
+                        <label for="email" class="registration_form-label">Email*</label>
+                        <input type="email" class="login_form-control" id="email"
+                            placeholder="Введите ваш email" required>
+                    </div>
+                    <div>
+                        <label for="password1" class="registration_form-label">Пароль*</label>
+                        <input type="password" class="login_form-control" id="password1"
+                            placeholder="Введите пароль" required>
+                    </div>
+                    <div>
+                        <label for="password2" class="registration_form-label">Подтверждение пароля*</label>
+                        <input type="password" class="login_form-control" id="password2"
+                            placeholder="Подтвердите пароль" required>
+                    </div>
+                </div>
+                <button type="submit" class="login_submit-btn login-btn">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

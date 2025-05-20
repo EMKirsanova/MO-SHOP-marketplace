@@ -33,7 +33,7 @@
         <a href="#" class="display_flex">
             <img src="{% static "deps/icons/cart_header.svg" %}" class="header_cart-image" alt="header_cart-image" title="Корзина">
         </a>
-        <a href="#" class="display_flex">
+        <a href="{% url "user:profile" %}" class="display_flex">
             <img src="{% static "deps/icons/account_icon.svg" %}" class="header_account-image" alt="header_account-image" title="Профиль">
         </a>
     </header>

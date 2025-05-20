@@ -165,6 +165,23 @@ body {
     text-decoration: none;
 }
 
+.index_links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.index_links a {
+    margin-bottom: 10px;
+}
+
+.index_links a:last-child{
+    margin-top: 20px;
+}
+
+
+/* about */
+
 .about_text {
     font-size: 1.5em;
     color: #13122a;
@@ -510,4 +527,326 @@ body {
 
 .product_screen-add-to-cart:hover {
     background-color: #3b3786;
+}
+
+
+/* login */
+
+.login_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+    height: 280px;
+}
+
+.login_title {
+    font-size: 2em;
+    color: #13122a;
+    margin-bottom: 10px;
+}
+
+.login_form {
+    width: 100%;
+}
+
+.login_form_role {
+    margin-bottom: 20px;
+}
+
+.login_form_login-as {
+    margin-bottom: 6px;
+}
+
+.login_inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 72px;
+}
+
+.login_form-control {
+    background-color: #fff;
+    border: 4px solid #8782ff;
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    margin-bottom: 6px;
+    padding: 0 6px;
+}
+
+.login_form-control:focus, .login_form-control:active {
+    outline: none;
+}
+
+.login-btn {
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+.login_submit-btn {
+    margin-top: 4px;
+    background-color: #8782ff;
+    color: #fff;
+    transition: 0.2s;
+    margin-bottom: 6px;
+}
+
+.login_submit-btn:hover {
+    background-color: #3b3786;
+}
+
+.login_create-new, .login_create-new:visited{
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    background-color: #c9b8e6;
+    color: #3b3786;
+    border: 4px solid #8782ff;
+    height: 30px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.login_create-new:hover, .ogin_create-new:focus {
+    color: #8782ff;
+}
+
+
+/* registration */
+
+.registration_form-label {
+    font-size: 1.2em;
+    color: #13122a;
+}
+
+
+/* profile */
+
+.profile_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.profile_container > div {
+    /* background-color: #fff; */
+    padding: 10px;
+    border: 4px solid #8782ff;
+}
+
+.user_profile {
+    width: 38%;
+    margin-bottom: 50px;
+}
+
+.user_cart {
+    width: 56%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.user_orders {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile_form-label {
+    font-size: 1.1em;
+    color: #13122a;
+}
+
+.profile_image_div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.profile_image {
+    margin-bottom: 6px;
+}
+
+.profile_sublit-btn {
+    padding: 8px 10px;
+    color: #fff;
+}
+
+
+/* cart */
+
+.cart_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart_block {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #3b3786;
+}
+
+.cart_header {
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    text-align: center;
+    border-bottom: 2px solid #3b3786;
+}
+
+.cart_title {
+    font-size: 1.2em;
+    color: #13122a;
+}
+
+.cart_product-lines {
+    display: flex;
+    list-style-type: none;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.cart_product-line_li {
+    width: 100%;
+}
+
+.cart_product-line_div {
+    display: flex;
+    height: 30px;
+    padding: 4px 0;
+}
+
+.cart_product-line_div > div {
+    margin-right: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.cart_product-line-part {
+    height: 100%;
+}
+
+.cart_setting-btn {
+    background-color: #8782ff;
+    width: 20px;
+    height: 100%;
+    color: #fff;
+    padding: 0 6px;
+    box-sizing: border-box;
+}
+
+.cart_product-line-part span {
+    box-sizing: border-box;
+}
+
+.cart_form-control {
+    width: 30px;
+    height: 100%;
+    text-align: center;
+}
+
+.cart-footer {
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.cart-footer_text {
+    font-size: 1.12em;
+    color: #13122a;
+}
+
+.cart-footer_cost {
+    font-size: 1.2em;
+    color: #13122a;
+}
+
+
+/* orders */
+
+.orders_container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.accordion {
+    width: 100%;
+    color: #13122a;
+}
+
+.accordion-item {
+    padding-top: 6px;
+    border: 2px solid #3b3786;
+}
+
+.accordion-header {
+    font-size: 1em;
+    padding: 0 20px;
+}
+
+.accordion-button {
+    background-color: #c9b8e6;
+}
+
+.accordion-body {
+    padding: 10px;
+}
+
+.accordion-body_table {
+    width: 100%;
+    background-color: #8782ff;
+    border-collapse: collapse;
+}
+
+.accordion-body_table, .accordion-body_table th, td {
+  border: 1px solid #13122a;
+  box-sizing: border-box;
+}
+
+.accordion-body_table th, td {
+    padding: 4px;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+.accordion-body_table_item {
+    color: #13122a;
+    transition: 0.2s;
+}
+
+.accordion-body_table_item:hover {
+    color: #fff;
+}
+
+.accordion-item_cost {
+    margin-top: 10px;
+    display: flex;
+}
+
+.accordion-item_cost p:first-child {
+    margin-right: 12px;
 }

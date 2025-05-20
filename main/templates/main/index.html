@@ -15,5 +15,11 @@
         </ul>
     </div>
 
-    <a href="{% url "admin:index" %}" class="link_basic_style index_catalog_link decoration_none">Админ-панель</a>
+    <div class="index_links">
+        <a href="{% url "user:login" %}" class="link_basic_style index_catalog_link decoration_none">Войти</a>
+        <a href="{% url "user:registration" %}" class="link_basic_style index_catalog_link decoration_none">Регистрация</a>
+        <a href="{% url "user:profile" %}" class="link_basic_style index_catalog_link decoration_none">Личный кабинет</a>
+        <a href="{% url "user:logout" %}" class="link_basic_style index_catalog_link decoration_none">Выйти</a>
+        <a href="{% url "admin:index" %}" class="link_basic_style index_catalog_link decoration_none">Админ-панель</a>
+    </div>
 {% endblock content %}
