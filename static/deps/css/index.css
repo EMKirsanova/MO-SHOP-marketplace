@@ -621,6 +621,38 @@ body {
     color: #8782ff;
 }
 
+.form_errors_container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.alert_form_errors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 10px;
+    background-color: #8782ff;
+    color: #fff;
+}
+
+.alert_form_errors ul {
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+.alert_form_errors_btn-close {
+    background: #3b3786;
+    color: #fff;
+    width: 27px;
+    height: 27px;
+    font-size: 1.5em;
+    transition: 0.2s;
+}
+
+.alert_form_errors_btn-close:hover {
+    opacity: 0.8;
+}
+
 
 /* registration */
 

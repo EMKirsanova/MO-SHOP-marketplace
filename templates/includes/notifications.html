@@ -1,0 +1,11 @@
+{% load static %}
+
+<!-- Для non_field_erors  -->
+ {% if form.non_field_errors %}
+    <div class="form_errors_container" id="form_errors_container" style="display: block">
+        <div class="alert_form_errors" role="alert">
+            {{ form.non_field_errors }}
+            <button type="button" class="alert_form_errors_btn-close" id="alert_form_errors_btn-close">×</button>
+        </div>
+    </div>
+ {% endif %}
