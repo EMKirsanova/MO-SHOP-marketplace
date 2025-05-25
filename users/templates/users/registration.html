@@ -5,7 +5,8 @@
     <div class="login_wrapper">
         <div class="login_panel">
             <h2 class="login_title">Регистрация</h2>
-            <form class="login_form">
+            <form class="login_form" action="{% url "user:registration" %}" method="post">
+                {% csrf_token %}
                 <div class="login_form_role">
                     <label for="role-select" class="login_form_login-as registration_form-label">Зарегистрироваться как:</label>
                     <select class="login_form-control" id="role-select" name="role" required>
@@ -15,36 +16,60 @@
                         <option value="staff">Сотрудник</option>
                     </select>
                 </div>
-                <div class="row">
+                <div class="registration_form_inputs">
                     <div>
-                        <label for="firstName" class="registration_form-label">Имя*</label>
-                        <input type="text" class="login_form-control" id="firstName"
+                        <label for="id_first_name" class="registration_form-label">Имя*</label>
+                        <input type="text" class="login_form-control" id="id_first_name" name="first_name"
+                            value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
                             placeholder="Введите ваше имя" required>
+                        {% if form.first_name.errors %}
+                            <div class="registration_form_error">{{ form.first_name.errors }}</div>
+                        {% endif %}
                     </div>
                     <div>
-                        <label for="lastName" class="registration_form-label">Фамилия*</label>
-                        <input type="text" class="login_form-control" id="lastName"
+                        <label for="id_last_name" class="registration_form-label">Фамилия*</label>
+                        <input type="text" class="login_form-control" id="id_last_name" name="last_name"
+                            value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
                             placeholder="Введите вашу фамилию" required>
+                        {% if form.last_name.errors %}
+                            <div class="registration_form_error">{{ form.last_name.errors }}</div>
+                        {% endif %}
                     </div>
                     <div>
-                        <label for="username" class="registration_form-label">Логин*</label>
-                        <input type="text" class="login_form-control" id="username"
+                        <label for="id_username" class="registration_form-label">Логин*</label>
+                        <input type="text" class="login_form-control" id="id_username" name="username"
+                            value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
                             placeholder="Введите ваше имя пользователя" required>
+                        {% if form.username.errors %}
+                            <div class="registration_form_error">{{ form.username.errors }}</div>
+                        {% endif %}
                     </div>
                     <div>
-                        <label for="email" class="registration_form-label">Email*</label>
-                        <input type="email" class="login_form-control" id="email"
+                        <label for="id_email" class="registration_form-label">Email*</label>
+                        <input type="email" class="login_form-control" id="id_email" name="email"
+                            value="{% if form.email.value %}{{ form.email.value }}{% endif %}"
                             placeholder="Введите ваш email" required>
+                        {% if form.email.errors %}
+                            <div class="registration_form_error">{{ form.email.errors }}</div>
+                        {% endif %}
                     </div>
                     <div>
-                        <label for="password1" class="registration_form-label">Пароль*</label>
-                        <input type="password" class="login_form-control" id="password1"
+                        <label for="id_password1" class="registration_form-label">Пароль*</label>
+                        <input type="password" class="login_form-control" id="id_password1" name="password1"
+                            value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}"
                             placeholder="Введите пароль" required>
+                        {% if form.password1.errors %}
+                            <div class="registration_form_error">{{ form.password1.errors }}</div>
+                        {% endif %}
                     </div>
                     <div>
-                        <label for="password2" class="registration_form-label">Подтверждение пароля*</label>
-                        <input type="password" class="login_form-control" id="password2"
+                        <label for="id_password2" class="registration_form-label">Подтверждение пароля*</label>
+                        <input type="password" class="login_form-control" id="id_password2" name="password2"
+                            value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}"
                             placeholder="Подтвердите пароль" required>
+                        {% if form.password2.errors %}
+                            <div class="registration_form_error">{{ form.password2.errors }}</div>
+                        {% endif %}
                     </div>
                 </div>
                 <button type="submit" class="login_submit-btn login-btn">Зарегистрироваться</button>

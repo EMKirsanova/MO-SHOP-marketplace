@@ -172,11 +172,12 @@ body {
 }
 
 .index_links a {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .index_links a:last-child{
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    margin-bottom: 0;
 }
 
 
@@ -660,6 +661,14 @@ body {
     font-size: 1.2em;
     color: #13122a;
 }
+
+.registration_form_error {
+    color: #13122a;
+    background-color: #f19999;
+    padding: 4px 6px;
+    margin-bottom: 4px;
+}
+
 
 
 /* profile */
