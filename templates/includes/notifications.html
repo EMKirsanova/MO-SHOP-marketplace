@@ -9,3 +9,23 @@
         </div>
     </div>
  {% endif %}
+
+ <div class="form_errors_container">
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <div id="notification" class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+            {% if message.tags == 'warning' %}
+                <div id="notification" class="alert alert-warning" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+    <div id="jq-notification" class="alert alert-success" style="display: none;" role="alert">
+    </div>
+    {% endif %}
+</div>

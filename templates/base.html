@@ -33,7 +33,7 @@
         <a href="#" class="display_flex">
             <img src="{% static "deps/icons/cart_header.svg" %}" class="header_cart-image" alt="header_cart-image" title="Корзина">
         </a>
-        <a href="{% url "user:profile" %}" class="display_flex">
+        <a href="{% if user.is_authenticated %}{% url "user:profile" %}{% else %}{% url "user:login" %}{% endif %}" class="display_flex">
             <img src="{% static "deps/icons/account_icon.svg" %}" class="header_account-image" alt="header_account-image" title="Профиль">
         </a>
     </header>
@@ -43,6 +43,7 @@
         {% block content %}{% endblock content %}
     </div>
 
+    <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
     <script src="{% static "deps/js/jquery-events.js" %}"></script>
 </body>
 </html>

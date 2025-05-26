@@ -1,13 +1,13 @@
 // Когда html документ готов (прорисован)
-
-// // Берем из разметки элемент по id - оповещения от django
-// var notification = $('#notification');
-// // И через 7 сек. убираем
-// if (notification.length > 0) {
-//     setTimeout(function () {
-//         notification.alert('close');
-//     }, 7000);
-// }
+$(document).ready(function () {
+    // Берем из разметки элемент по id - оповещения от django
+    var notification = $('#notification');
+    // И через 7 сек. убираем
+    if (notification.length > 0) {
+        setTimeout(function () {
+            notification.fadeOut();
+        }, 7000);
+    }
 
 // // При клике по значку корзины открываем всплывающее(модальное) окно
 // $('#modalButton').click(function () {
@@ -30,7 +30,7 @@
 //     } else {
 //         $("#deliveryAddressField").hide();
 //     }
-// });
+});
 
 const catalog_button = document.getElementById("dropdown-menu_button");
 const catalog_menu = document.getElementById("dropdown-menu_list");

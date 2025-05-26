@@ -175,9 +175,28 @@ body {
     margin-bottom: 20px;
 }
 
-.index_links a:last-child{
+.index_links a:last-child {
     /* margin-top: 20px; */
     margin-bottom: 0;
+}
+
+.alert {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 10px;
+    color: #13122a;
+}
+
+.alert-success {
+    background-color: aquamarine;
+}
+
+.alert-warning {
+    background-color: #f19999;
 }
 
 
@@ -624,7 +643,6 @@ body {
 
 .form_errors_container {
     width: 100%;
-    margin-bottom: 20px;
 }
 
 .alert_form_errors {
@@ -634,6 +652,7 @@ body {
     padding: 6px 10px;
     background-color: #8782ff;
     color: #fff;
+    margin-bottom: 10px;
 }
 
 .alert_form_errors ul {
