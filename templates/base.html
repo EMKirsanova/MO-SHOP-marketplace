@@ -1,5 +1,8 @@
 {% load static %}
 {% load goods_tags %}
+{% load carts_tags %}
+
+{% user_carts request as carts %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,15 +35,29 @@
         <!-- звёзды в header -->
         <div class="header_stars-bg"></div> 
         <!-- корзина в header -->
-        <a href="{% if user.is_authenticated %}{% url "user:users_cart" %}{% else %}{% url "user:login" %}{% endif %}" class="display_flex">
-            <img src="{% static "deps/icons/cart_header.svg" %}" class="header_cart-image" alt="header_cart-image" title="Корзина">
-        </a>
+        <div class="header_cart-container">
+            <a href="{% if user.is_authenticated %}{% url "user:users_cart" %}{% else %}{% url "user:login" %}{% endif %}" class="display_flex">
+                <img src="{% static "deps/icons/cart_header.svg" %}" class="header_cart-image" alt="header_cart-image" title="Корзина">
+                <div><p>{{ carts.total_quantity }}</p></div>
+            </a>
+            <div class="cart_drowdown-list_container">
+                <div class="cart_container" id="cart-items-container">
+                    <!-- Разметка корзины -->
+                    {% include "carts/includes/included_cart.html" %}
+                    <!-- Закончилась разметка корзины -->
+                </div>
+                <a class="login_submit-btn profile_sublit-btn decoration_none" href="../orders/create_order.html">
+                    Оформить заказ
+                </a>
+            </div>
+        </div>
         <!-- личный кабинет в header -->
         <a href="{% if user.is_authenticated %}{% url "user:profile" %}{% else %}{% url "user:login" %}{% endif %}" class="display_flex">
             <img src="{% static "deps/icons/account_icon.svg" %}" class="header_account-image" alt="header_account-image" title="Личный кабинет">
         </a>
     </header>
 
+    
     <div class="page_content">
         {% include "includes/notifications.html" %}
         {% block content %}{% endblock content %}

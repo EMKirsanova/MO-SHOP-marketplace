@@ -20,7 +20,7 @@
                 {% endif %}
             </div>
             {% comment %} <p class="product_screen-price">{{ product.sell_price }} ₽</p> {% endcomment %}
-            <a href="#" class="product_screen-add-to-cart decoration_none">Добавить в корзину</a>
+            <a href="{% url "cart:cart_add" product.slug %}" class="product_screen-add-to-cart decoration_none">Добавить в корзину</a>
         </div>
     </div>
 {% endblock content %}
