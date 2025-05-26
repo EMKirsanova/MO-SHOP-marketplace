@@ -917,6 +917,11 @@ body {
     color: #fff;
     padding: 0 6px;
     box-sizing: border-box;
+    transition: 0.2s;
+}
+
+.cart_setting-btn:hover {
+    background-color: #3b3786;
 }
 
 .cart_product-line-part span {
@@ -1016,4 +1021,124 @@ body {
 
 .accordion-item_cost p:first-child {
     margin-right: 12px;
+}
+
+
+/* orders */
+
+.order_screen_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    border: 4px solid #8782ff;
+    margin-bottom: 20px;
+}
+
+.order_cart_wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.order_cart_container {
+    width: 90%;
+}
+
+.order_title {
+    font-size: 1.7em;
+    color: #13122a;
+    margin: 10px 0;
+}
+
+.order_contacts_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.order_contacts_wrapper .order_title {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.order_contacts_cart_container {
+    width: 70%;
+    height: auto;
+    border: 2px solid #3b3786;
+}
+
+.order_contacts_cart_form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order_form_content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.order_form_field {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 6px;
+}
+
+.order_form_field textarea {
+    height: 50px;
+    padding: 2px 6px;
+}
+
+.field-50 {
+    width: 50%;
+}
+
+.field-100 {
+    width: 100%;
+}
+
+.order_form_label {
+    font-size: 1.2em;
+    color: #13122a;
+    margin-bottom: 4px;
+}
+
+.order_form_control {
+    background-color: #fff;
+    border: 4px solid #8782ff;
+    width: 100%;
+    height: 36px;
+    box-sizing: border-box;
+    margin-bottom: 6px;
+    padding: 4px 6px;
+}
+
+.form-check {
+    color: #13122a;
+    display: inline-block;
+}
+
+.order_form-btn {
+    width: 40%;
+    height: 30px;
+    margin: 8px 0;
+    background-color: #8782ff;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.order_form-btn:hover {
+    background-color: #3b3786;
 }

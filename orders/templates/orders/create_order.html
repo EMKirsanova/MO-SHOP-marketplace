@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="order_screen_wrapper">
+    <div class="order_cart_wrapper">
+        <h3 class="order_title">Выбранные товары</h3>
+        <div class="order_cart_container" id="cart-page-items-container">
+            <!-- Разметка корзины -->
+            {% include "carts/includes/included_cart.html" %}
+            <!-- Закончилась разметка корзины -->
+        </div>
+    </div>
+    <!-- Детали заказа -->
+    <div class="order_contacts_wrapper">
+        <h3 class="order_title">Детали заказа</h3>
+        <div class="order_contacts_cart_container">
+            <form action="{% url "orders:create_order" %}" method="post" class="order_contacts_cart_form">
+                {% csrf_token %}
+                <div class="order_form_content">
+                    <div class="order_form_field field-50">
+                        <label for="id_first_name" class="order_form_label">Имя*:</label>
+                        <input type="text" class="order_form_control" id="id_first_name"
+                            value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
+                            name="first_name" required>
+                        {% if form.first_name.errors %}
+                            <div class="alert alert-warning">{{form.first_name.errors}}</div>
+                        {% endif %}
+                    </div>
+                    <div class="order_form_field field-50">
+                        <label for="id_last_name" class="order_form_label">Фамилия*:</label>
+                        <input type="text" class="order_form_control" id="id_last_name" name="last_name"
+                            value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
+                            required>
+                        {% if form.last_name.errors %}
+                            <div class="alert alert-warning">{{form.last_name.errors}}</div>
+                        {% endif %}
+                    </div>
+                    <div class="order_form_field field-50">
+                        <label for="id_phone_number" class="order_form_label">Номер телефона*:</label>
+                        <input type="text" class="order_form_control" id="id_phone_number" name="phone_number"
+                            value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
+                            placeholder="В формате: 8XXXXXXXXXX"
+                            required>
+                        {% if form.phone_number.errors %}
+                            <div class="alert alert-warning">{{form.phone_number.errors}}</div>
+                        {% endif %}
+                    </div>
+                    <div class="order_form_field field-100">
+                        <label for="delivery" class="order_form_label">Способ доставки: </label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="requires_delivery"
+                                id="id_requires_delivery" value="1" checked>
+                            <label class="form-check-label" for="id_requires_delivery">Нужна
+                                доставка</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="requires_delivery"
+                                id="id_requires_delivery" value="0">
+                            <label class="form-check-label" for="id_requires_delivery">Самовывоз</label>
+                        </div>
+                    </div>
+                    <div class="order_form_field field-100" id="deliveryAddressField">
+                        <label for="id_delivery_address" class="order_form_label">Адрес
+                            доставки*:</label>
+                        <textarea class="order_form_control" id="id_delivery_address"
+                            value="{% if form.delivery_address.value %}{{ form.delivery_address.value }}{% endif %}"
+                            name="delivery_address" rows="2"></textarea>
+                        {% if form.delivery_address.errors %}
+                            <div class="alert alert-warning">{{form.delivery_address.errors}}</div>
+                        {% endif %}
+                    </div>
+                    <div class="order_form_field field-100">
+                        <label class="order_form_label">Способ оплаты: </label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="payment_on_get"
+                                id="id_payment_on_get" value="0" checked>
+                            <label class="form-check-label" for="id_payment_on_get">Оплата
+                                картой</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="payment_on_get"
+                                id="id_payment_on_get" value="1">
+                            <label class="form-check-label" for="id_payment_on_get">Наличными/картой
+                                при получении</label>
+                            {% comment %} {% if form.payment_on_get.errors %}
+                                <div class="alert alert-warning">{{form.payment_on_get.errors}}</div>
+                            {% endif %} {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="order_form-btn">Оформить заказ</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

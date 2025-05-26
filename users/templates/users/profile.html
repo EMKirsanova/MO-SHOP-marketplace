@@ -81,7 +81,7 @@
                 <!-- Закончилась разметка корзины -->
             </div>
             {% if carts %}
-                <a class="login_submit-btn profile_sublit-btn decoration_none" href="../orders/create_order.html">
+                <a class="login_submit-btn profile_sublit-btn decoration_none" href="{% url "orders:create_order" %}">
                     Оформить заказ
                 </a>
             {% endif %}

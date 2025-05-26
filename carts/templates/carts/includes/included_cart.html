@@ -18,8 +18,7 @@
                                 <button type="button" class="cart_setting-btn decrement"
                                     data-cart-id="{{ cart.id }}"
                                     data-cart-change-url="{% url "cart:cart_change" %}">
-                                    {% csrf_token %}
-                                    -</button>
+                                    {% csrf_token %}-</button>
                             </span>
                             <input type="text" class="cart_form-control number" value="{{ cart.quantity }}"
                                 readonly>
@@ -27,8 +26,7 @@
                                 <button type="button" class="cart_setting-btn increment"
                                     data-cart-id="{{ cart.id }}"
                                     data-cart-change-url="{% url "cart:cart_change" %}">
-                                    {% csrf_token %}
-                                    +</button>
+                                    {% csrf_token %}+</button>
                             </span>
                         </div>
                     </div>
