@@ -40,7 +40,7 @@
                         <label for="id_phone_number" class="order_form_label">Номер телефона*:</label>
                         <input type="text" class="order_form_control" id="id_phone_number" name="phone_number"
                             value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
-                            placeholder="В формате: 8XXXXXXXXXX"
+                            placeholder="В формате: XXX XXX XX XX  (не вводите +7 или 8)"
                             required>
                         {% if form.phone_number.errors %}
                             <div class="alert alert-warning">{{form.phone_number.errors}}</div>
@@ -83,9 +83,9 @@
                                 id="id_payment_on_get" value="1">
                             <label class="form-check-label" for="id_payment_on_get">Наличными/картой
                                 при получении</label>
-                            {% comment %} {% if form.payment_on_get.errors %}
+                            {% if form.payment_on_get.errors %}
                                 <div class="alert alert-warning">{{form.payment_on_get.errors}}</div>
-                            {% endif %} {% endcomment %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>

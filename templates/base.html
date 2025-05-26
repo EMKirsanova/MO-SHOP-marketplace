@@ -54,7 +54,8 @@
             </div>
         </div>
         <!-- личный кабинет в header -->
-        <a href="{% if user.is_authenticated %}{% url "user:profile" %}{% else %}{% url "user:login" %}{% endif %}" class="display_flex">
+        <a href="{% if user.is_authenticated %}{% url "user:profile" %}
+        {% else %}{% url "user:login" %}{% endif %}" class="display_flex">
             <img src="{% static "deps/icons/account_icon.svg" %}" class="header_account-image" alt="header_account-image" title="Личный кабинет">
         </a>
     </header>

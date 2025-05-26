@@ -80,7 +80,7 @@ def profile(request):
         form = ProfileForm(instance=request.user)
 
     context = {
-        'title': 'МО-ШОП — Профиль',
+        'title': 'МО-ШОП — Личный кабинет',
         'form': form,
     }
 
