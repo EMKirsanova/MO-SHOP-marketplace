@@ -180,15 +180,20 @@ body {
     margin-bottom: 0;
 }
 
+.notifications_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .alert {
     width: 100%;
     margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 6px 10px;
     color: #13122a;
+    box-sizing: border-box;
 }
 
 .alert-success {

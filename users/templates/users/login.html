@@ -7,6 +7,9 @@
             <h2 class="login_title">Авторизация</h2>
             <form class="login_form" action="{% url "user:login" %}" method="post">
                 {% csrf_token %}
+                {% if request.GET.next %}
+                    <input type="hidden" name="next" value={{ request.GET.next }}>
+                {% endif %}
                 <div class="login_form_role">
                     <label for="role-select" class="login_form_login-as registration_form-label">Войти как:</label>
                     <select class="login_form-control" id="role-select" name="role" required>
