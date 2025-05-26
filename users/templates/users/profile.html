@@ -77,7 +77,8 @@
             <h3 class="login_title">Корзина</h3>
             <div class="cart_container" id="cart-items-container">
                 <!-- Разметка корзины -->
-                <div class="cart_block">
+                {% include "carts/includes/included_cart.html" %}
+                {% comment %} <div class="cart_block">
                     <div class="cart_header">
                         <h5 class="cart_title">Товар</h5>
                     </div>
@@ -117,7 +118,7 @@
                         <p class="cart-footer_text">Итого <strong>1</strong> товар(а) на сумму</p>
                         <h4 class="cart-footer_cost"><strong>100.00 $</strong></h4>
                     </div>
-                </div>
+                </div> {% endcomment %}
                 <!-- Закончилась разметка корзины -->
             </div>
             <a class="login_submit-btn profile_sublit-btn decoration_none" href="../orders/create_order.html">

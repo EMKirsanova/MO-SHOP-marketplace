@@ -11,10 +11,11 @@
 </head>
 <body>
     <header class="header_main">
+        <!-- логотип в header -->
         <div class="wrapper inline_block">
             <a href="{% url "main:index" %}" class="header_title decoration_none">MO-ШОП</a>
         </div>
-        <!-- div для каталога в header -->
+        <!-- каталог в header -->
         <div class="dropdown-menu">
             <button class="dropdown-menu_button" id="dropdown-menu_button" type="button">
                 <p>Каталог</p>
@@ -28,13 +29,15 @@
                 {% endfor %}
             </ul>
         </div>
-        <!-- div для звёзд в header -->
+        <!-- звёзды в header -->
         <div class="header_stars-bg"></div> 
-        <a href="#" class="display_flex">
+        <!-- корзина в header -->
+        <a href="{% if user.is_authenticated %}{% url "user:users_cart" %}{% else %}{% url "user:login" %}{% endif %}" class="display_flex">
             <img src="{% static "deps/icons/cart_header.svg" %}" class="header_cart-image" alt="header_cart-image" title="Корзина">
         </a>
+        <!-- личный кабинет в header -->
         <a href="{% if user.is_authenticated %}{% url "user:profile" %}{% else %}{% url "user:login" %}{% endif %}" class="display_flex">
-            <img src="{% static "deps/icons/account_icon.svg" %}" class="header_account-image" alt="header_account-image" title="Профиль">
+            <img src="{% static "deps/icons/account_icon.svg" %}" class="header_account-image" alt="header_account-image" title="Личный кабинет">
         </a>
     </header>
 
