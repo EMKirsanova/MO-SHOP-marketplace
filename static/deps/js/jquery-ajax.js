@@ -100,8 +100,12 @@ $(document).ready(function () {
                 goodsInCartCount.text(cartCount);
 
                 // Меняем содержимое корзины на ответ от django (новый отрисованный фрагмент разметки корзины)
-                var cartItemsContainer = $("#cart-items-container");
-                cartItemsContainer.html(data.cart_items_html);
+                var cartItemsContainer1 = $("#cart-items-container");
+                var cartItemsContainer2 = $("#cart-page-items-container");
+                var cartItemsContainer3 = $("#cart-profile-items-container");
+                cartItemsContainer1.html(data.cart_items_html);
+                cartItemsContainer2.html(data.cart_items_html);
+                cartItemsContainer3.html(data.cart_items_html);
 
             },
 
@@ -178,8 +182,12 @@ $(document).ready(function () {
                 goodsInCartCount.text(cartCount);
 
                 // Меняем содержимое корзины
-                var cartItemsContainer = $("#cart-items-container");
-                cartItemsContainer.html(data.cart_items_html);
+                var cartItemsContainer1 = $("#cart-items-container");
+                var cartItemsContainer2 = $("#cart-page-items-container");
+                var cartItemsContainer3 = $("#cart-profile-items-container");
+                cartItemsContainer1.html(data.cart_items_html);
+                cartItemsContainer2.html(data.cart_items_html);
+                cartItemsContainer3.html(data.cart_items_html);
 
             },
             error: function (data) {
