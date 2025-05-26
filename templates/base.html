@@ -38,7 +38,7 @@
         <div class="header_cart-container">
             <a href="{% if user.is_authenticated %}{% url "user:users_cart" %}{% else %}{% url "user:login" %}{% endif %}" class="display_flex">
                 <img src="{% static "deps/icons/cart_header.svg" %}" class="header_cart-image" alt="header_cart-image" title="Корзина">
-                <div><p>{{ carts.total_quantity }}</p></div>
+                <div><p id="goods-in-cart-count">{{ carts.total_quantity }}</p></div>
             </a>
             <div class="cart_drowdown-list_container">
                 <div class="cart_container" id="cart-items-container">
@@ -67,5 +67,6 @@
 
     <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
     <script src="{% static "deps/js/jquery-events.js" %}"></script>
+    <script src="{% static "deps/js/jquery-ajax.js" %}"></script>
 </body>
 </html>

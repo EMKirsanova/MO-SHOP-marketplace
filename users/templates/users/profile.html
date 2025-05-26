@@ -78,47 +78,6 @@
             <div class="cart_container" id="cart-items-container">
                 <!-- Разметка корзины -->
                 {% include "carts/includes/included_cart.html" %}
-                {% comment %} <div class="cart_block">
-                    <div class="cart_header">
-                        <h5 class="cart_title">Товар</h5>
-                    </div>
-                    <ul class="cart_product-lines">
-                        <li class="cart_product-line_li">
-                            <div class="cart_product-line_div">
-                                <div class="col p-0">
-                                    <div class="cart_product-line-part">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="cart_setting-btn decrement"
-                                                data-cart-id="" data-cart-change-url="">-</button>
-                                        </span>
-                                        <input type="text" class="cart_form-control number" value="1"
-                                            readonly>
-                                        <span class="input-group-btn">
-                                            <button type="button" class="cart_setting-btn increment"
-                                                data-cart-id="" data-cart-change-url="">+</button>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col p-0">
-                                    <p>x 100.00 = </p>
-                                </div>
-                                <div class="col p-0"><strong>100.00 $</strong></div>
-                                <div class="col p-0">
-                                    <a href="#" class="remove-from-cart" data-cart-id="">
-                                        <img class="mx-1" src="{% static "deps/icons/trash3-fill.svg" %}"
-                                            alt="Catalog Icon" width="16" height="16">
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="cart_block">
-                    <div class="cart-footer">
-                        <p class="cart-footer_text">Итого <strong>1</strong> товар(а) на сумму</p>
-                        <h4 class="cart-footer_cost"><strong>100.00 $</strong></h4>
-                    </div>
-                </div> {% endcomment %}
                 <!-- Закончилась разметка корзины -->
             </div>
             {% if carts %}

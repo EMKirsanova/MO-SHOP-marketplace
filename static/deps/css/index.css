@@ -860,6 +860,7 @@ body {
 .cart_title {
     font-size: 1.2em;
     color: #13122a;
+    padding: 0 10px;
 }
 
 .cart_product-lines {

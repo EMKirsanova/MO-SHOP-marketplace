@@ -77,7 +77,9 @@
                                 {% else %}
                                     <p class="product_price">{{ product.price }} ₽</p>
                                 {% endif %}
-                                <a href="{% url "cart:cart_add" product.slug %}" class="display_flex">
+                                <a href="{% url "cart:cart_add" %}" class="display_flex add-to-cart" 
+                                data-product-id={{ product.id }}>
+                                    {% csrf_token %}
                                     <img src="{% static "deps/icons/cart-plus.svg" %}" class="product_card_to-cart" alt="Add_to_cart_btn" title="Добавить в корзину">
                                 </a>
                             </div>
