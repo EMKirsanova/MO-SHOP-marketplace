@@ -13,16 +13,22 @@
             <li class="cart_product-line_li">
                 <div class="cart_product-line_div">
                     <div class="col p-0">
-                        <div class="cart_product-line-part">
+                        <div class="input-group cart_product-line-part">
                             <span class="input-group-btn">
                                 <button type="button" class="cart_setting-btn decrement"
-                                    data-cart-id="" data-cart-change-url="">-</button>
+                                    data-cart-id="{{ cart.id }}"
+                                    data-cart-change-url="{% url "cart:cart_change" %}">
+                                    {% csrf_token %}
+                                    -</button>
                             </span>
                             <input type="text" class="cart_form-control number" value="{{ cart.quantity }}"
                                 readonly>
                             <span class="input-group-btn">
                                 <button type="button" class="cart_setting-btn increment"
-                                    data-cart-id="" data-cart-change-url="">+</button>
+                                    data-cart-id="{{ cart.id }}"
+                                    data-cart-change-url="{% url "cart:cart_change" %}">
+                                    {% csrf_token %}
+                                    +</button>
                             </span>
                         </div>
                     </div>
