@@ -23,6 +23,11 @@
                     {{ message }}
                 </div>
             {% endif %}
+            {% if message.tags == 'error' %}
+                <div id="notification" class="alert alert-warning" role="alert">
+                    {{ message }}
+                </div>
+            {% endif %}
         {% endfor %}
     {% else %}
     <div id="jq-notification" class="alert alert-success" style="display: none;" role="alert">

@@ -5,9 +5,6 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     image = models.ImageField(upload_to='users_images', blank=True, null=True, verbose_name='Аватар')
     phone_number = models.CharField(max_length=10, blank=True, null=True)
-    
-    is_seller = models.BooleanField(verbose_name='Продавец', default=False)
-    role = models.CharField(verbose_name='Роль', max_length=100, default='customer')
 
     class Meta:
         # Имя SQL-таблицы
