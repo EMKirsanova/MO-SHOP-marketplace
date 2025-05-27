@@ -93,13 +93,14 @@
             <!-- Разметка заказов -->
             <div class="orders_container">
                 <div class="accordion" id="accordionExample">
+                    {% for order in orders %}
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="heading1">
                             <button class="accordion-button" type="button">
-                                Заказ № 256 - 09 сентября 2023 9:04 | Статус:<strong class="order_status"> В обработке</strong>
+                                Заказ № {{ order.id }} — {{ order.created_timestamp }} | Статус: <strong class="order_status">{{ order.status }}</strong>
                             </button>
                         </h2>
-                        <div id="collapse1" class="accordion-collapse collapse show">
+                        <div id="collapse{{ order.id }}" class="accordion-collapse collapse show">
                             <div class="accordion-body">
                                 <table class="accordion-body_table table-dark table-hover">
                                     <thead>
@@ -111,24 +112,27 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {% for item in order.orderitem_set.all %}
                                         <tr>
-                                            <td><a class="accordion-body_table_item decoration_none" href="#">
-                                                Комплект стол и три стула</a></td>
-                                            <td>1</td>
-                                            <td>255.00 $</td>
-                                            <td>255.00 $</td>
+                                            <td><a class="accordion-body_table_item decoration_none" href="{% url 'catalog:product' item.product.slug %}">
+                                                {{ item.product.name }}</a></td>
+                                            <td>{{ item.quantity }}</td>
+                                            <td>{{ item.price }} ₽</td>
+                                            <td><strong>{{ item.products_price }} ₽</strong></td>
                                             
                                         </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                                 <div class="accordion-item_cost">
                                     <p><strong>Итого:</strong></p>
-                                    <p><strong>255.00 $</strong></p>
+                                    <p><strong>{{ order.total_order_price }} ₽</strong></p>
 
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
             <!-- Закончилась разметка заказов -->

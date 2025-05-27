@@ -5,7 +5,6 @@ from users.models import User
 
 
 class OrderitemQueryset(models.QuerySet):
-    
     def total_price(self):
         return sum(cart.products_price() for cart in self)
     
@@ -13,6 +12,7 @@ class OrderitemQueryset(models.QuerySet):
         if self:
             return sum(cart.quantity for cart in self)
         return 0
+
 
 class Order(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.SET_DEFAULT, blank=True, null=True, verbose_name="Пользователь", default=None)
@@ -32,6 +32,9 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Заказ № {self.pk} | Покупатель {self.user.first_name} {self.user.last_name}"
+    
+    def total_order_price(self):
+        return OrderItem.objects.filter(order=self).total_price()
 
 
 class OrderItem(models.Model):
