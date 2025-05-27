@@ -20,6 +20,9 @@ class CreateOrderForm(forms.Form):
             ],
         )
 
+    # Дополнительная (пользовательская) валидация номера телефона
+    # Выполняется после стандартных (встроенных)
+    # Начинается с префикса "clean_"
     def clean_phone_number(self):
         data = self.cleaned_data['phone_number']
 

@@ -253,6 +253,7 @@ body {
     padding: 6px 10px;
     color: #13122a;
     box-sizing: border-box;
+    overflow: overlay;
 }
 
 .alert-success {
