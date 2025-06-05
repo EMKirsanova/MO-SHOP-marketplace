@@ -41,7 +41,16 @@ class UserRegistrationForm(UserCreationForm):
             "password2",
         )
 
-    # role = forms.CharField()
+    role = forms.ChoiceField(
+        label='Роль',
+        choices=[
+            ('customer', 'Покупатель'),
+            ('seller', 'Продавец'),
+            ('staff_warehouse', 'Сотрудник склада'),
+            ('staff_delivery', 'Сотрудник доставки'),
+        ],
+        required=True, # Добавьте эту строку, чтобы поле было обязательным для заполнения
+    )
     first_name = forms.CharField()
     last_name = forms.CharField()
     username = forms.CharField()

@@ -30,7 +30,11 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user is None:
                 messages.error(request, "Неверный логин или пароль")
-                print("Неверный логин или пароль")
+                context = {
+                    'title': 'МО-ШОП — Авторизация',
+                    'form': form,
+                }
+                return render(request, 'users/login.html', context)
             else:
                 old_session_key = request.session.session_key
                 if old_session_key:
@@ -40,16 +44,18 @@ def login(request):
                 if user.is_superuser:
                     auth.login(request, user)
                     messages.success(request, f"{username}, вы вошли как { users_roles[requested_role] }")
-                    print(f"{username}, вы вошли как { users_roles[requested_role] }")
                     return HttpResponseRedirect(reverse('admin:index'))  # или ваш админский дашбоард
                 
                 # 2) Обычный пользователь — проверяем роль
                 if not requested_role or not user.groups.filter(name=requested_role).exists():
                     messages.error(request, "У вас нет прав для входа под этой ролью")
-                    print("У вас нет прав для входа под этой ролью")
+                    context = {
+                        'title': 'МО-ШОП — Авторизация',
+                        'form': form,  # Pass the form back to the template
+                    }
+                    return render(request, 'users/login.html', context)
                 else:
                     messages.success(request, f"{username}, вы вошли как { users_roles[requested_role] }")
-                    print(f"{username}, вы вошли как { users_roles[requested_role] }")
                     auth.login(request, user)
 
                     # messages.success(request, f"{username}, вы вошли в аккаунт как { users_roles[requested_role] }")

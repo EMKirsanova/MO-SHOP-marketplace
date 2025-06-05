@@ -13,11 +13,16 @@
                 <div class="login_form_role">
                     <label for="role-select" class="login_form_login-as registration_form-label">Войти как:</label>
                     <select class="login_form-control" id="role-select" name="role" required>
-                        <option value="" disabled selected>Выберите роль</option>
-                        <option value="customer">Покупатель</option>
-                        <option value="seller">Продавец</option>
-                        <option value="staff_warehouse">Сотрудник склада</option>
-                        <option value="staff_delivery">Сотрудник доставки</option>
+                        <option value="" disabled 
+                            {% if not form.role.value %}selected{% endif %}>Выберите роль</option>
+                        <option value="customer" 
+                            {% if form.role.value == 'customer' %}selected{% endif %}>Покупатель</option>
+                        <option value="seller"
+                            {% if form.role.value == 'seller' %}selected{% endif %}>Продавец</option>
+                        <option value="staff_warehouse" 
+                            {% if form.role.value == 'staff_warehouse' %}selected{% endif %}>Сотрудник склада</option>
+                        <option value="staff_delivery" 
+                            {% if form.role.value == 'staff_delivery' %}selected{% endif %}>Сотрудник доставки</option>
                     </select>
                 </div>
                 
